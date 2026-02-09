@@ -1,0 +1,129 @@
+<h4 class="text-primary mb-3">Digital Logic x Metaphysics</h4>
+<p> Designing a circuit diagram for a 2-bit adder and a 2-bit subtractor was a process involving the design of a full adder
+    and a full subtractor. I then had to figure out how I could with a combination of a full adder and half adder build
+    a circuit for a 2-bit adder. Likewise I had to do the same for a 2-bit subtractor.
+</p>
+
+<h5 class="text-primary mb-3">Full Adder</h5>
+<p> In the full adder below let input A be bit 1, input B is bit 2, input C is the carry in bit. Let output O1 be sum bit and O2 is carry out bit.</p>
+<img class="w-100 img-fluid mb-4" src="../../img/Fulladder.png" alt="Full adder circuit design">
+
+<h5 class="text-primary mb-3">2-Bit Adder</h5>
+<p> In order to create a 2-bit adder we need to combine a half adder to the full adder.</p>
+<p> In the circuit design below let S is sum and C is carry bit.</p>
+<img class="w-100 img-fluid mb-4" src="../../img/2bitadder.png" alt="2-bit adder block-circuit design">
+<p> The half adder goes before the full adder because its output S0 is the least significant bit in binary addition and
+    the carry bit is needed to determine the output of the most significant bits. When we lay the adders out like the 
+    circuit diagram above we can do 2-bit addition. Because binary addition is computed bit by bit from least significant to most significant bit, a half adder and a full adder correctly combined mimicks multi-bit addition.
+</p>
+
+<h6>Example: If X= 01 (1) and Y= 10 (2)</h6>
+<div class="ms-3">
+    <strong>Half-adder chunk:</strong>
+    <div class="ms-4">
+        <strong>Inputs:</strong> X0= 1, Y0= 0<br>
+        <strong>Outputs:</strong> C0= 0, S0= 1
+    </div>
+</div>
+<div class="ms-3">
+    <strong>Full-adder chunk:</strong>
+    <div class="ms-4">
+        <strong>Inputs:</strong> X1= 0, Y1= 1, C0= 0<br>
+        <strong>Outputs:</strong> C1= 0, S1= 1
+    </div>
+</div>
+<h6>Sum= C1S1S0 = 011 (3 in decimal which is correct addition of X+Y)</h6>
+
+<h6>Another Example: If X= 11 (3) and Y= 01 (1)</h6>
+<div class="ms-3">
+    <strong>Half-adder chunk:</strong>
+    <div class="ms-4">
+        <strong>Inputs:</strong> X0= 1, Y0= 1<br>
+        <strong>Outputs:</strong> C0= 1, S0= 0
+    </div>
+</div>
+<div class="ms-3">
+    <strong>Full-adder chunk:</strong>
+    <div class="ms-4">
+        <strong>Inputs:</strong> X1= 1, Y1= 0, C0= 1<br>
+        <strong>Outputs:</strong> C1= 1, S1= 0
+    </div>
+</div>
+<h6>Sum= C1S1S0 = 100 (4 in decimal which is correct addition of X+Y)</h6>
+<p>The tracing of these examples demonstrates that the carry bit is properly manipulated between the least significant
+    bit to the most significant bit and produces the correct output.
+</p>
+
+
+<h5 class="text-primary mb-3">Full Subtractor</h5>
+<p> In the full Subtractor below let input A be bit 1, input B is bit 2, input C is the borrow in bit. Let output O1 be difference bit and O2 is borrow bit.</p>
+<img class="w-100 img-fluid mb-4" src="../../img/Fullsubtractor.png" alt="Full subtractor circuit design">
+
+<h5 class="text-primary mb-3">2-Bit Subtractor</h5>
+<p> In order to create a 2-bit adder we need to combine a half subtractor to the full subtractor.</p>
+<p> In the circuit design below let D is difference and B is borrow bit.</p>
+<img class="w-100 img-fluid mb-4" src="../../img/2bitsubtractor.png" alt="2-bit subtractor block-circuit design">
+<p> The half subtractor goes before the full subtractor because its output D0 is the difference of the least significant 
+    bit in binary addition and the borrow bit is needed to determine the output of the most significant bits (if we borrowed from it when computing the difference of least significant bits). When we lay the subtractors out like the 
+    circuit diagram above we can do 2-bit subtraction. Binary subtraction is also done bit by bit and requires keeping track of borrow bits across bit positions which is why the half and full subtractors are laid out this way.
+</p>
+
+<h6>Example: If X= 11 (3) and Y= 10 (2)</h6>
+<div class="ms-3">
+    <strong>Half-subtractor chunk:</strong>
+    <div class="ms-4">
+        <strong>Inputs:</strong> X0= 1, Y0= 0<br>
+        <strong>Outputs:</strong> B0= 0, D0= 1
+    </div>
+</div>
+<div class="ms-3">
+    <strong>Full-subtractor chunk:</strong>
+    <div class="ms-4">
+        <strong>Inputs:</strong> X1= 1, Y1= 1, B0= 0<br>
+        <strong>Outputs:</strong> B1= 0, D1= 0
+    </div>
+</div>
+<h6>Difference= D1D0 = 01 (1 in decimal which is correct subtraction X-Y)</h6>
+
+<h6>Another Example: If X= 10 (2) and Y= 01 (1)</h6>
+<div class="ms-3">
+    <strong>Half-subtractor chunk:</strong>
+    <div class="ms-4">
+        <strong>Inputs:</strong> X0= 0, Y0= 1<br>
+        <strong>Outputs:</strong> B0= 1, D0= 1
+    </div>
+</div>
+<div class="ms-3">
+    <strong>Full-subtractor chunk:</strong>
+    <div class="ms-4">
+        <strong>Inputs:</strong> X1= 1, Y1= 0, B0= 1<br>
+        <strong>Outputs:</strong> B1= 0, D1= 0
+    </div>
+</div>
+<h6>Difference= D1D0 = 01 (1 in decimal which is correct subtraction X-Y)</h6>
+<p>The tracing of these examples demonstrates that the borrow bit is properly manipulated between the least significant
+    bit to the most significant bit and produces the correct output.
+</p>
+
+<h5 class="text-primary mb-3">Reflection on the nature and structure of computers:</h5>
+<p> In class discussions as well as reading Leibniz's Dream somewhat changed the way I think about computers. Computation is not just a technical process, but also a philosophical concept. Leibniz's work with binary numbers, calculus and early calculation machines as a way of explaining patterns. From this perspective a modern computer/laptop is just a more complex version of one on Leibniz's machines but at the end of the day just manipulates inputs according to certain rules in order to produce an output.
+</p>
+<p> This closely relates with many of the class discussions we had trying to answer the overarching question of what makes a computer a computer. A question was brought up one day if computers would exist without humans and if so does a computer need human interaction for it to be considered a computer. The discussion that followed changed my previous belief that regardless of human interaction a computer is a computer. Now I think that a 'dead' computer or one without human interaction is merely a paperweight. I believe Klaus mentioned that if a computer was sent back to the caveman era it would just be a weird stone to them. What an object is depends on its usage.
+</p>
+<p> The idea that a computer is just one method in which humans as a society perform computations and a representation of how we express this computation. This suggested the idea that computation is a concept that exists outside of human existence and be more embedded in nature. Adit's example in the class discussion of monkeys equally dividing bananas amongst eachother shows that the concept of computations exists in nature. This example shows that rule based problem solving can exist inately. At the same time another discussion point complicated this idea. If computation is merely a framework that humans use to interpret information and patters then it is highly dependent on human existence and observation. Overall the class discussions allowed me to view computers as part of the relationship between logic and nature as opposed to merely a tool.</p>
+
+<h6 class="text-primary mb-3">Lingering Questions</h5>
+<p>
+    Reading Leibniz’s Dream and participating in class discussions left me with several open questions about the nature and structure of computers:
+</p>
+<ul>
+    <li>
+        If computation appears in natural, rule-based processes, does it exist independently of humans (not purely the concept but the underlying patterns)? Is un-observed computation still computation?
+    </li>
+    <li>
+        To what extent are modern computers fundamentally different from Leibniz’s mechanical and symbolic systems? If they are different where is the line?
+    </li>
+</ul>
+
+<h6 class="text-primary md-3"> Works Cited: </h6>
+<p>Davis, M. (2018). The universal computer : the road from Leibniz to Turing (Third edition.). CRC Press. https://doi.org/10.1201/9781315144726</p>
