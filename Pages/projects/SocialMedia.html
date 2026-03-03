@@ -1,0 +1,53 @@
+<h4 class="text-primary mb-3">Social Media x Ethics</h4>
+<p> Building a personalized Bot was a fun assignment. I was surprised by how easy making a benign bot is. I had several choices on how to make my bot, what kind of posts to make, and how to interact with users. In short my bot makes a text post saying the next post will be of a dog. Using a dog API I then upload an image of a dog. And the last thing my bot does is like the most recent post in the feed. A link to my bots profile page on Bluesky is here:
+    <a>https://bsky.app/profile/cs302alex.bsky.social</a>
+</p>
+
+<h5 class="text-primary mb-3">Text Only Post</h5>
+<p> Using the client.send_post(Text) function I was able to post a simple sentence: </p>
+<img class="w-100 img-fluid mb-4" src="/CS302/img/firstTextPost.png" alt="First text post from bot saying first post">
+
+<p> When deciding what I wanted the post to say I decided it is important to let other users know the account is a bot. Thus, the first post says "Hello, This is my first post from a computer program". Especially given class discussions throughout the past weeks and considering ethics, it is unethical to have a bot fully impersonate a human without letting others know. Later on, as you'll see, the text post changes to go hand in hand with an image post.
+</p>
+
+<h5 class="text-primary mb-3">Multimedia Post</h5>
+<p> When deciding how to design my multimedia post I knew I wanted to post wholesome images as opposed to being a fan page around something specific or posting videos/audio. I settled on posting random pictures of a dog. This was done with the requests external package and is used to get image data from an external dog api at <a>https://dog.ceo/api/breeds/image/random.</a></p>
+
+<img class="w-100 img-fluid mb-4" src="/CS302/img/FinalBotPost.png" alt="Image of 2 back to back posts; text saying next post is random dog then a picture of a random dog">
+
+<p> The only people who would not appreciate these pictures are dog haters (seemingly few since unintentially have gathered followers on my bot). Every time the bot runs it posts a text image letting users know the next post will be a random dog and then posts an image of a random dog. To go slightly more in depth on how this works: The text post works just like the previous text posts while getting the image to be posted is a few step process. First using requests.get I get the image data in JSON format. The code then finds the image url and then extracts the contents of the image. Once this is done using ATprotos client.upload_blob alongside client.send_post the bot embedds the image information in the post before posting the picture.
+</p>
+
+<h5 class="text-primary mb-3">Interactions with other users</h5>
+<p> I felt like replying to other posts is more difficult as you have to take into account the audience when determine the tone and context of the audience. Because of this I decided to make the bot like the most recent post in its feed. </p>
+<img class="w-100 img-fluid mb-4" src="/CS302/img/BotInteraction.png" alt="Bot interaction with others. Liked most recent post in feed">
+
+<p> In order to always like the first post the client.get_timeline() function needs to be used. The bot then looks through until it fines the most recent post posted by a different user (not liking bots own post). Then using client.like and the most recent post's uri and cid the bot likes this post.
+</p>
+
+
+<h5 class="text-primary mb-3">Reflection on Morality in the Context of Social Media:</h5>
+<p> During the past couple weeks in class our discussions were centered around ethics in the context of social media and how bots play a role in this discussion. The pre class readings alongside these discussions challenged how I think about responsibility and manipulation in digital spaces. I used to think of bots as mostly harmles automation or spam. However the readings 'Do Social Media Bots Dream of Electric Sheep?' and 'Botivist: Calling Volunteers to Action using Online Bots' both complicate this assumption. They provide examples showing bots are embedded in social, political, and ethical systems in digital space.
+</p>
+
+<p> One of the key takeaways I had from 'Do Social Media Bots Dream of Electric Sheep?' was that bots can simulate political and shape other social opinions. This is done in ways that are hard to detect, which raises ethoical concerns both about deception of others and governmental/social integrity. A surprising thing I realized here is that bots don't always cause harm directly but as an effect create an illusion that becomes real. If public opinion can be artificially amplified, shifts the scales against an individual's opinions. On the other hand, the Botivist article shows bots as more of a tool for engagement and activism for a good cause. In this article bots were used to help volunteers/activists take action. This reminds me of one of Adit's comments on the different between good and bad bots heavily relies on the distinction between the bot being used as a tool as opposed to an impersonation of a human. This was an interesting perspective to view this topic through but then questions arise on where is the line between a bot that is a tool and one that is not.
+</p>
+
+<p> In one of the class discussions Nora mentioned a gender pay gap bot that would expose companies who pay females less than males. This could be as a good seen to help establish equality even if it causes harm to the company or it's reputation. This made me think of bots as less either good or bad but as more complex systems where we need to take into account the design, transparency, intent, and power of the bots. For example this gender pay gap bot is different from a bot designed to mislead voters which is different from a bot designed to campaign help for a natural disaster. Aside from the aspects of a bot mentioned I also thought about the responsibility of the bots, but they are created by people or organizations, and hosted on other companies platforms. Thus all these parties must share the blame.</p>
+
+<h5 class="text-primary mb-3">Lingering Questions</h5>
+<p>
+    These discussions and readings have left me with a deeper understanding of ethics in social media but I still have some questions that could be used in future discussions:
+</p>
+<ul>
+    <li>
+        Should social media treat civic/activist bots differently from manipulative bots, and if so, how could that be fairly enforced?
+    </li>
+    <li>
+       At what point is a bot's harmful actions justified by the good outcomes (directly and indirectly) it's actions has if it is ever justified?
+    </li>
+</ul>
+
+<h6 class="text-primary md-3"> Works Cited: </h6>
+<p>Saiph Savage, Andres Monroy-Hernandez, and Tobias Höllerer. (2016). Botivist: Calling Volunteers to Action using Online Bots. In Proceedings of the 19th ACM Conference on Computer-Supported Cooperative Work & Social Computing (CSCW '16). Association for Computing Machinery, New York, NY, USA, 813–822. https://doi.org/10.1145/2818048.2819985</p>
+<p>Stieglitz, S., et al. (2017). Do Social Bots Dream of Electric Sheep? A Categorisation of Social Media Bot Accounts, Australasian Conference on Information Systems.</p>
