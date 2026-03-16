@@ -1,0 +1,199 @@
+<h4 class="text-primary mb-3">Wearable Health Tech x Epistemology</h4>
+
+<p> This project explores the technology and philosophy behind wearable health devices, 
+specifically focusing on the Oura Ring. The Oura Ring collects 
+biometric, motion, and personal data in order to generate insights about sleep and 
+daily activity. While these devices appear simple on the surface, they rely on 
+complex sensing technologies and algorithms to transform raw physical signals into 
+useful information.
+</p>
+
+<p> Our project focused on one of the fundamental sensors used in wearable technology: 
+the accelerometer. Accelerometers are used (typically alongside gyroscopes) to detect motion and orientation by 
+measuring acceleration along three axes (X, Y, and Z). These measurements are then 
+interpreted by specialized (in our case Oura) algorithms to determine behaviors such as movement, step counts, and 
+sleep activity. To better understand this process, we built a prototype using an 
+Arduino Uno microcontroller and an ADXL345 accelerometer sensor.
+</p>
+
+<h5 class="text-primary mb-3">Core Technical Concept: Accelerometer Sensors</h5>
+
+<p> An accelerometer is a sensor that measures changes in velocity along three 
+axes: X, Y, and Z. These sensors are commonly used in smartphones, wearable fitness devices, and other technologies that need to detect movement or orientation. In wearable devices such as the Oura Ring, accelerometers help detect physical motion 
+such as walking, running, or sleep movement.
+</p>
+
+<p> Our prototype used the ADXL345 accelerometer, which is a MEMS 
+(Micro-electro-mechanical System) sensor. A MEMS structure is like a mass with springs attatched on either side used to detect acceleration along the three axes. The sensor communicates with a microcontroller using the 
+I²C communication protocol, a short-distance data communication 
+method commonly used between sensors and microcontrollers that requires two main wires (one connected to the SDA (data) port and one connected to the SCL (clock/synchronization) port).
+</p>
+
+<p> The accelerometer detects motion as changes in electrical signals, which are 
+converted into numerical values. When stationary, the sensor still detects 
+approximately −9.81 m/s² on the vertical (Z) axis due to gravity. When the device is 
+moved or tilted, these values change, allowing software or advanced algorithms to interpret the motion
+and transform these values into a sleep score or step count or other activity information.
+</p>
+
+<h5 class="text-primary mb-3">Accelerometer Hardware Setup</h5>
+
+<p> To demonstrate how motion sensing works, we connected an ADXL345 accelerometer to 
+an Arduino microcontroller. The Arduino reads acceleration data from the sensor 
+and prints the values for the X, Y, and Z axes to the serial monitor and serial plotter. These values 
+represent the acceleration acting on the sensor in each direction.
+</p>
+
+<p> The diagram below comes from the hardware tutorial linked in a later section which shows how the arduino uno connects the ADXL345 accelerometer.
+</p>
+
+<img class="w-100 img-fluid mb-4" src="/CS302/img/accelerometerSetup.png" alt="Arduino microcontroller connected to ADXL345 accelerometer sensor hardware setup">
+
+<h5 class="text-primary mb-3">Prototype Demonstration</h5>
+
+<p>
+This video demonstrates the ADXL345 accelerometer connected to an Arduino 
+microcontroller. The sensor detects motion across the X, Y, and Z axes and 
+outputs acceleration values that can be used for activity tracking similar 
+to wearable devices like the Oura Ring. The video below shows the values on the serial plotter where the X axis is represented by
+the blue line, Y axis by the red line, and Z axis by the green line. It starts relative stationary sitting on the desk as I bang the desk for small vibrations then I pick the sensor up and start moving it along the 3 axis and in circles.
+</p>
+
+<video class="w-100 img-fluid mb-4" controls aria-label="Prototype demonstration of ADXL345 accelerometer connected to Arduino showing motion detection">
+    <source src="/CS302/vid/AccelerometerDemo.mov" type="video/mp4">
+</video>
+
+<h5 class="text-primary mb-3">Materials and Resources</h5>
+
+<p>
+The following resources were used to construct and understand the accelerometer 
+prototype used in this project:
+</p>
+
+<ul>
+<li>Arduino microcontroller board</li>
+<li>ADXL345 accelerometer sensor</li>
+<li>I²C communication protocol</li>
+<li>Arduino programming environment</li>
+</ul>
+
+<p>
+The full code used for the accelerometer prototype, along with supporting files 
+and documentation, can be found in the project GitHub repository:
+</p>
+
+<p>
+<a href="https://github.com/Alexwcislo/CS302Final">View the full project repository on GitHub</a>
+</p>
+
+<p>
+Hardware tutorial and code reference:
+<a href="https://circuitdigest.com/microcontroller-projects/interface-adxl345-accelerometer-with-arduino-uno">
+https://circuitdigest.com/microcontroller-projects/interface-adxl345-accelerometer-with-arduino-uno
+</a>
+</p>
+
+
+<h5 class="text-primary mb-3">Philosophical Reflection: Reliability and Trust in Wearable Technology</h5>
+
+<p> In class we explored epistemology, the philosophical study of knowledge. Over the weeks of this course our discussions centered around knowledge being a justified true belief. Another framework that shaped my thinking about wearable health technology was 
+reliabilism or reliabilist epistemology. According to reliabilism, a belief is justified if it is produced 
+by a reliable process that tends to generate true beliefs.
+</p>
+
+<p>Although users often interpret these metrics as objective truths about their 
+health and take Oura's suggestions they trust that it will have positive outcomes. Users rely on Oura's information on a daily basis. These metrics or information from Oura are actually the result of a multi-step process: physical movement is 
+measured by sensors, converted into electrical signals, processed into numerical 
+values, and finally interpreted by algorithms designed by engineer to produce a sleep score or step count. Understanding 
+this process helps us critically evaluate how reliable and trustworthy these health insights truly are (especially because as 
+London pointed out during our discussion the step count or certain activity will vary depending on if you look at your phone, smart watch, or Oura ring).
+</p>
+
+<p> Wearable devices such as the Oura Ring rely heavily on this concept of reliability. 
+Users trust the device’s sleep scores, activity levels, and recovery metrics 
+because they assume the sensing processes and algorithms behind them are reliable. Accelerometers 
+and other sensors measure physical signals, and algorithms interpret these signals 
+to produce health insights. If these measurement and processing systems consistently 
+produce accurate information, then users may view the resulting beliefs about their 
+health as justified and thus true.
+</p>
+
+<p> However, reliability alone does not guarantee trustworthiness. Trust involves 
+vulnerability and the possibility of being misled. When users follow advice from 
+a wearable device, such as improving sleep patterns or adjusting exercise habits, 
+they are placing trust in the technology and the company that designed it. This 
+raises important ethical questions about how these technologies are marketed and 
+how transparent companies should be about the limits of their data.
+</p>
+
+<p> Another philosophical idea that influenced my thinking is the concept of trustworthiness. A system may appear reliable, but if the methods behind its conclusions are opaque or proprietary, users may not fully understand 
+how the information is produced and may lack trust in the company. Wearable health devices therefore occupy a 
+complex space between technological reliability and human trust.
+</p>
+
+<p> While leading the discussion (with the questions listed below) some interesting points were brought up by classmates. Overall the class seemed to reach a consensus that trust and reliability were highly intertwined but sometimes can be seperated. For example someone mentioned they trust their friend with their life but can not rely on them to answer a phone call or consistently answer texts. I thought this was interesting as it provides a unique insight into different types of trust and reliability and how the relationship between the two changes based on the current situation. Going back to the Oura ring technology there seemed to be an overall sense that it is easier to rely on a piece of technology than it is to trust all the claims being made about it (for instance the Oura ring). I believe it was Paul who mentioned that he could rely on the Oura ring to tell him things about his activity and sleep but has issues trusting some of information portrayed. For instance he said once the ring said his bpm reached over 200 in the middle of the night and another time it said recovery/rest period is over 48hrs when there was no activity that had been done. Whether or not these were accurate meaasurements or flukes brings into question the accuracy and reliabilty of the technology. I think it is nearly impossible to fully rely on or trust information from technology unless one understands every detail, sensor, code, program, and data manipulation is being used to compile the final output.</p>
+
+<p> In a similar sense both the project on the Ring Doorbell and the project on facial recognition made me question how accurate these technologies really are and if we can rely on face ID more than humans especially in legal contexts. The face recognition project had a demo that accurately either did not identify a person or identified people it had been trained on. However the 1 error brought up ethical concerns as it identified 2 people as the same (perhaps for racial reasons). It is well known eye witness testimony is quite flawed and can be inflluenced by prosecuters questions. However, if a facial recognition software is trained mostly on white databasses it will have higher error rates with black or asian people for instance which could be used to falsely accuse a person in court. I think these projects resonated with me especially after my own project focused on reliability and trust of technology.</p>
+
+<h5 class="text-primary mb-3">Discussion Questions</h5>
+<p> Below is a list of questions my group prepared for leading our inclass discussion around our project:
+</p>
+
+<ul>
+<li>
+    How does Oura employ reliability to sell its products? Trustworthiness?
+</li>
+
+<li>
+    Can you have trustworthiness without reliability? Can you trust something without relying on it?
+</li>
+
+<li>
+    How might an entity’s degree of anthropoglossicness relate to its perceived reliability? To its perceived trustworthiness?
+</li>
+
+<li>
+    What is the relationship between trust and responsibility? Between reliability and responsibility?
+</li>
+</ul>
+
+
+<h6 class="text-primary mb-3">Works Cited</h6>
+
+<p>
+Analog Devices. (n.d.). <em>ADXL345 product information</em>. 
+https://www.analog.com/en/products/adxl345.html
+</p>
+
+<p>
+Agnihotri, N. (2021). <em>How to use the ADXL345 accelerometer sensor</em>. 
+Engineers Garage. 
+https://www.engineersgarage.com/adxl345-accelerometer-sensor-how-to-use/
+</p>
+
+<p>
+Goldman, A., & Beddor, B. (2021). <em>Reliabilist epistemology</em>. 
+The Stanford Encyclopedia of Philosophy. 
+https://plato.stanford.edu/archives/sum2021/entries/reliabilism/
+</p>
+
+<p>
+Jain, R. (2020). <em>Interfacing ADXL345 accelerometer with Arduino UNO</em>. 
+CircuitDigest. 
+https://circuitdigest.com/microcontroller-projects/interface-adxl345-accelerometer-with-arduino-uno
+</p>
+
+<p>
+VectorNav. (n.d.). <em>MEMS accelerometers and inertial sensors</em>. 
+https://www.vectornav.com/resources/inertial-navigation-primer/theory-of-operation/theory-mems
+</p>
+
+<p>
+Oura Ring. (n.d.). <em>Smart ring for fitness, stress, sleep & health</em>. 
+https://ouraring.com/
+</p>
+
+<p>
+Yin, Z., & Flores, H. (2025). <em>The evolution of wearables: A survey on trends, 
+challenges, and the emerging impact of smart rings</em>. TechRxiv.
+</p>
